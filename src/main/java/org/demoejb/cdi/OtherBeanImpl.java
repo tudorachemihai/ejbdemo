@@ -1,5 +1,15 @@
 package org.demoejb.cdi;
 
-//@Stateless(name = "mySecondBean")
-//public class OtherBeanImpl implements MyBean {
-//}
+import org.demoejb.cdi.annotations.SecondBean;
+
+import javax.ejb.Stateless;
+
+@Stateless(name = "mySecondBean")
+@SecondBean
+public class OtherBeanImpl implements MyBean {
+
+    @Override
+    public String getSomeValue() {
+        return "mySecondBean";
+    }
+}

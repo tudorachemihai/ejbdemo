@@ -1,5 +1,7 @@
 package org.demoejb.cdi;
 
+import org.demoejb.cdi.annotations.SecondBean;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -9,7 +11,7 @@ public class ParentBean {
 
     private String someParentValue;
 
-    @Inject
+    @Inject @SecondBean
     private MyBean myBean;
 
     @PostConstruct
