@@ -8,6 +8,7 @@ import org.junit.Test;
 import javax.ejb.EJB;
 import javax.ejb.embeddable.EJBContainer;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -32,10 +33,11 @@ public class ParentBeanTest {
     public void test() {
         System.out.println("Testing....");
 
+        assertNotNull(parentBean);
+        assertNotNull(parentBean.getMyBean());
         assertNotNull(parentBean.getSomeParentValue());
         assertNotNull(parentBean.getMyBean().getSomeValue());
-
-        assertTrue(parentBean != null);
+        assertEquals("testbean", parentBean.getMyBean().getSomeValue());
     }
 
     @AfterClass
